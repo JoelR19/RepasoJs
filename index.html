@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Documentación de JavaScript</title>
+  <style>
+    /* Estilos para la documentación */
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      margin: 20px;
+      padding: 20px;
+      background-color: #f0f0f0;
+    }
+
+    h1, h2 {
+      color: #333;
+    }
+
+    code {
+      background-color: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+
+    .section {
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Introducción a JavaScript</h1>
+  <p>JavaScript es un lenguaje de programación interpretado que se utiliza principalmente en el desarrollo web para crear páginas dinámicas e interactivas.</p>
+
+  <div class="section">
+    <h2>Sintaxis Básica</h2>
+    <h3>Variables</h3>
+    <pre><code>
+// Declaración de variables
+let nombre = "Juan";
+const edad = 25;
+var esEstudiante = true;
+    </code></pre>
+
+    <h3>Tipos de Datos</h3>
+    <pre><code>
+let numero = 42; // Número
+let texto = "Hola, mundo!"; // Cadena de texto
+let esVerdadero = false; // Booleano
+let indefinido; // Undefined
+let nulo = null; // Null
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Operadores</h2>
+    <h3>Operadores Aritméticos</h3>
+    <pre><code>
+let suma = 5 + 3;
+let resta = 5 - 3;
+let multiplicacion = 5 * 3;
+let division = 5 / 3;
+let modulo = 5 % 3;
+    </code></pre>
+
+    <h3>Operadores de Comparación</h3>
+    <pre><code>
+let esIgual = 5 == "5"; // true
+let esEstrictamenteIgual = 5 === "5"; // false
+let esMayor = 5 > 3; // true
+let esMenor = 5 < 3; // false
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Estructuras de Control</h2>
+    <h3>Condicionales</h3>
+    <pre><code>
+if (edad >= 18) {
+  console.log("Es mayor de edad.");
+} else {
+  console.log("Es menor de edad.");
+}
+    </code></pre>
+
+    <h3>Bucles</h3>
+    <pre><code>
+// Bucle for
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+// Bucle while
+let contador = 0;
+while (contador < 5) {
+  console.log(contador);
+  contador++;
+}
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Funciones</h2>
+    <pre><code>
+// Declaración de una función
+function saludar(nombre) {
+  return `Hola, ${nombre}!`;
+}
+
+// Llamada a la función
+console.log(saludar("Juan"));
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Arreglos</h2>
+    <pre><code>
+let frutas = ["Manzana", "Banana", "Cereza"];
+
+// Acceder a elementos
+console.log(frutas[0]); // Manzana
+
+// Añadir un elemento
+frutas.push("Durazno");
+
+// Eliminar el último elemento
+frutas.pop();
+
+// Recorrer un arreglo
+frutas.forEach(function(fruta) {
+  console.log(fruta);
+});
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Objetos</h2>
+    <pre><code>
+let persona = {
+  nombre: "Juan",
+  edad: 25,
+  saludar: function() {
+    console.log(`Hola, me llamo ${this.nombre}`);
+  }
+};
+
+// Acceder a propiedades
+console.log(persona.nombre); // Juan
+
+// Llamar a un método
+persona.saludar(); // Hola, me llamo Juan
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Manipulación del DOM</h2>
+    <pre><code>
+// Seleccionar un elemento
+let elemento = document.getElementById("miElemento");
+
+// Cambiar el contenido
+elemento.textContent = "Nuevo contenido";
+
+// Añadir un evento
+elemento.addEventListener("click", function() {
+  alert("¡Elemento clicado!");
+});
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Promesas y Asincronía</h2>
+    <pre><code>
+// Crear una promesa
+let promesa = new Promise(function(resolve, reject) {
+  let exito = true;
+  if (exito) {
+    resolve("¡Éxito!");
+  } else {
+    reject("Error.");
+  }
+});
+
+// Usar una promesa
+promesa.then(function(mensaje) {
+  console.log(mensaje);
+}).catch(function(error) {
+  console.log(error);
+});
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Fetch API</h2>
+    <pre><code>
+fetch('https://api.example.com/datos')
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Diferencias entre =, == y ===</h2>
+    <h3>Operadores de Asignación y Comparación</h3>
+    <pre><code>
+=
+El operador de asignación = se utiliza para asignar un valor a una variable.
+let a = 5; // Asigna el valor 5 a la variable a
+
+==
+El operador de comparación == compara dos valores para igualdad después de convertir ambos valores a un tipo común (coerción de tipo).
+5 == "5"; // true, porque convierte "5" a número antes de comparar
+0 == false; // true, porque convierte false a 0 antes de comparar
+
+===
+El operador de comparación estricta === compara tanto el valor como el tipo sin realizar coerción de tipo.
+5 === "5"; // false, porque no son del mismo tipo
+0 === false; // false, porque no son del mismo tipo
+5 === 5; // true, porque son del mismo tipo y valor
+    </code></pre>
+  </div>
+
+  <div class="section">
+    <h2>Avanzando con Más Conceptos</h2>
+    <h3>Funciones Flecha</h3>
+    <pre><code>
+// Función tradicional
+function sumar(a, b) {
+  return a + b;
+}
+
+// Función flecha
+const sumar = (a, b) => a + b;
+
+console.log(sumar(2, 3)); // 5
+    </code></pre>
+
+    <h3>Destructuración</h3>
+    <pre><code>
+// Destructuración de arreglos
+let [x, y] = [1, 2];
+console.log(x); // 1
+console.log(y); // 2
+
+// Destructuración de objetos
+let { nombre, edad } = { nombre: "Ana", edad: 28 };
+console.log(nombre); // Ana
+console.log(edad); // 28
+    </code></pre>
+
+    <h3>Plantillas de Cadenas de Texto</h3>
+    <pre><code>
+let nombre = "Juan";
+let mensaje = `Hola, ${nombre}!`;
+console.log(mensaje); // Hola, Juan!
+    </code></pre>
+
+    <h3>Spread Operator</h3>
+    <pre><code>
+// En arreglos
+let arr1 = [1, 2, 3];
+let arr2 = [...arr1, 4, 5, 6];
+console.log(arr2); // [1, 2, 3, 4, 5, 6]
+
+// En objetos
+let obj1 = { a: 1, b: 2 };
+let obj2 = { ...obj1, c: 3 };
+console.log(obj2); // { a: 1, b: 2, c: 3 }
+    </code></pre>
+
+    <h3>Asincronía y async/await</h3>
+    <pre><code>
+// Función asincrónica
+async function obtenerDatos() {
+  try {
+    let response = await fetch('https://api.example.com/datos');
+    let data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
+
+obtenerDatos();
+    </code></pre>
+  </div>
+  <script>
+    
+  </script>
+</body>
+</html>
